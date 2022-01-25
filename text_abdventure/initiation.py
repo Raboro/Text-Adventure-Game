@@ -1,0 +1,2 @@
+class Initiation():
+	pass
