@@ -42,6 +42,7 @@ def print_character_values():
 	print("Health: ", player.hp)
 	print("Attack/Damage: ", player.attack)
 	print("Armor (Damage decrease): ", player.armor)
+	print("Healthbarlimit: ", player.hp_limit)
 
 def print_inventar():
 	for i in inventar.inventar_print:
@@ -56,14 +57,14 @@ def get_item_info():
 	time.sleep(1)
 	print("HP- stands for Healpotion and heal 50 hp")
 	time.sleep(1)
-	print("AP- stands for Attackpotion and increas your attack by 10 attack")
+	print("AP- stands for Attackpotion and increas your attack by 50 attack")
 	time.sleep(1)
-	print("S1- stands for Sword-1 and increase you attack by 10 attack (only equip 1), with every level you can collect better Swords which increases your attack more")
+	print("S1- stands for Sword-1 and increase you attack by 20 attack (only equip 1), with every level you can collect better Swords which increases your attack more")
 	time.sleep(1)
-	print("A1- stands for Armor-1 and decrease your damage by monster by 5 (quip up to 8), same concept as by Sword, every level got better armor")
+	print("A1- stands for Armor-1 and decrease your damage by monster by 5 and increases your healtbarlimit by 30(quip up to 8), same concept as by Sword, every level got better armor")
 
 def use_item():
-	inventar.use_item(m.items)
+	inventar.use_item(m.items, player)
 
 def get_monster_info():
 	pass

@@ -168,7 +168,7 @@ class Level_1():
 			print("Move unavaible")
 
 	def right(self):
-		if self.y < len(self.board)-1:
+		if self.y < len(self.board[0])-1:
 			self.check_field_no_element()
 			self.y += 1
 			is_wall = self.check_if_wall()
