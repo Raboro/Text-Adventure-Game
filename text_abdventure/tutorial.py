@@ -1,7 +1,7 @@
 import time
-from map import Tutorial_Map
+from map import TutorialMap
 
-m = Tutorial_Map()
+m = TutorialMap()
 
 def print_Commands():
 	for index, cmd in enumerate(Commands):

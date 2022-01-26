@@ -1,6 +1,6 @@
 import random
 
-class Tutorial_Map():
+class TutorialMap():
 	def __init__(self):
 		self.player_board = []
 		self.board = []
@@ -26,7 +26,7 @@ class Tutorial_Map():
 			print(i)
 		
 
-class Level_1():
+class LevelOneMap():
 	def __init__(self):
 
 		self.monster = ["O", "L", "K"]

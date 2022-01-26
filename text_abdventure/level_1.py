@@ -1,9 +1,9 @@
-from map import Level_1
+from map import LevelOneMap
 from player import *
 from inventar import *
 import time
 
-m = Level_1()
+m = LevelOneMap()
 player = Player(1)
 inventar = Inventar()
 
@@ -86,7 +86,7 @@ Commands = {
     "get_monster_info": get_monster_info
 }
 
-class Level_1():
+class LevelOne():
 	def __init__(self):
 		print("\n<----------------------------------------------------------------------------------------------------------------------------->")
 		print("<----------------------------------------------------<-Level 1->-------------------------------------------------------------->")

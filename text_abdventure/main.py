@@ -19,4 +19,4 @@ if __name__ == '__main__':
 
 	initiation_obj = Initiation()
 	tutorial_obj = Tutorial()
-	level_1_obj = Level_1()
+	level_1_obj = LevelOne()
