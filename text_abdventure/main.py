@@ -15,8 +15,6 @@ if __name__ == '__main__':
 
 	print(f"Welcome {player_name}")
 
-	player_obj = Player(0)
-
 	initiation_obj = Initiation()
 	tutorial_obj = Tutorial()
 	level_1_obj = LevelOne()

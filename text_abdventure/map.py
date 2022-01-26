@@ -1,4 +1,5 @@
 import random
+from monster import *
 
 class TutorialMap():
 	def __init__(self):
@@ -101,13 +102,11 @@ class LevelOneMap():
 						self.wall -= 1
 						self.board[li][i] = self.element
 
-
+	# print map
 	def print_map(self):
 		for i in self.player_board:
 			print(i)
 		print("")
-		for i in self.board:
-			print(i)
 
 	# react to field	
 	def check_field_no_element(self):
@@ -115,13 +114,15 @@ class LevelOneMap():
 				self.board[self.x][self.y] = " "
 				self.player_board[self.x][self.y] = " "
 
+	# check if there is a wall
 	def check_if_wall(self):
 		if self.board[self.x][self.y] == "|":
 			print("There is a wall, you can´t move")
 			return True
 		return False
 
-	def check_field(self):
+	# react to field
+	def check_field(self, player):
 		if self.board[self.x][self.y] == "-" or self.board[self.x][self.y] == " ":
 			self.board[self.x][self.y] = "P"
 			self.player_board[self.x][self.y] = "P"
@@ -147,18 +148,17 @@ class LevelOneMap():
 			print("You fall down and die, Try again :/")
 			quit()
 
-		elif self.board[self.x][self.y] == "O":
-			print("Oh Oh...a ORKKK\nYou have to fight him")
-			self.player_board[self.x][self.y] = "O"	
+		elif self.board[self.x][self.y] in self.monster:
+			self.monster_obj = Monster(self.board[self.x][self.y], 1, player)
 
 	# movement		
-	def left(self):
+	def left(self, player):
 		if self.y > 0:
 			self.check_field_no_element()
 			self.y -= 1
 			is_wall = self.check_if_wall()
 			if is_wall == False:
-				self.check_field()
+				self.check_field(player)
 			else:
 				self.player_board[self.x][self.y] = "|"
 				self.y += 1
@@ -167,13 +167,13 @@ class LevelOneMap():
 		else:
 			print("Move unavaible")
 
-	def right(self):
+	def right(self, player):
 		if self.y < len(self.board[0])-1:
 			self.check_field_no_element()
 			self.y += 1
 			is_wall = self.check_if_wall()
 			if is_wall == False:
-				self.check_field()
+				self.check_field(player)
 			else:
 				self.player_board[self.x][self.y] = "|"
 				self.y -= 1
@@ -182,13 +182,13 @@ class LevelOneMap():
 		else:
 			print("Move unavaible")
 
-	def forward(self):
+	def forward(self, player):
 		if self.x > 0:
 			self.check_field_no_element()
 			self.x -= 1
 			is_wall = self.check_if_wall()
 			if is_wall == False:
-				self.check_field()
+				self.check_field(player)
 			else:
 				self.player_board[self.x][self.y] = "|"
 				self.x += 1	
@@ -197,13 +197,13 @@ class LevelOneMap():
 		else:
 			print("Move unavaible")
 
-	def backward(self):
+	def backward(self, player):
 		if self.x < len(self.board)-1:
 			self.check_field_no_element()
 			self.x += 1
 			is_wall = self.check_if_wall()
 			if is_wall == False:
-				self.check_field()
+				self.check_field(player)
 			else:
 				self.player_board[self.x][self.y] = "|"
 				self.x -= 1		

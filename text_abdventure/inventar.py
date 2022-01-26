@@ -9,6 +9,7 @@ class Inventar():
 
 		self.reload()
 
+	# lead and reload the inventar
 	def reload(self):
 		self.inventar_print = [
 			["-------------------------------------------------------------------------"],
@@ -29,6 +30,7 @@ class Inventar():
 			["-------------------------------------------------------------------------"]
 		]
 	
+	# use selected item 
 	def use_selected_item(self, player):
 		if self.selected_item == "HP-":
 			if player.hp + 50 <= player.hp_limit:
@@ -57,15 +59,15 @@ class Inventar():
 			else:
 				print("You cant equip more armor")	
 
-
+	# remove the used item
 	def remove_item(self):
 		for i in range(len(self.inventar_list)):
 			if self.inventar_list[i] == self.selected_item:
 				self.inventar_list[i] = "---"
 				self.reload()
 				break
-
-
+ 
+	# check if the player really want to use a item and select the right one
 	def use_item(self, items, player):
 		for i in self.inventar_print:
 			print(i)

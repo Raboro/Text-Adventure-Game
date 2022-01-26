@@ -3,51 +3,56 @@ from player import *
 from inventar import *
 import time
 
+# generate objects
 m = LevelOneMap()
 player = Player(1)
 inventar = Inventar()
 
+# print all Commands
 def print_Commands():
 	for index, cmd in enumerate(Commands):
 		if index < 10:
-			print(index, " ->", cmd)
+			print(f"{index}  -> {cmd}")
 		else:
-			print(index, "->", cmd)
+			print(f"{index} -> {cmd}")
 
+# print the map
 def print_map():
 	m.print_map()
 
+# print position on the map
 def print_position():
-	print(m.x, ", ",m.y)
+	print(f"{m.x}, {m.y}")
 
+# move left
 def left():
-	m.left()
+	m.left(player)
 
+# move right
 def right():
-	m.right()
+	m.right(player)
 
+# move forward
 def forward():
-	m.forward()
+	m.forward(player)
 
+# move backward
 def backward():
-	m.backward()
+	m.backward(player)
 
-def fight():
-	pass
-
-def print_hp():
-	print(player.hp)
-
+# print character health, attack, armor and healtlimit
 def print_character_values():
 	print("Health: ", player.hp)
 	print("Attack/Damage: ", player.attack)
 	print("Armor (Damage decrease): ", player.armor)
 	print("Healthbarlimit: ", player.hp_limit)
 
+# print inventar
 def print_inventar():
 	for i in inventar.inventar_print:
 		print(i)
 
+# print the information about all items
 def get_item_info():
 	print("These are the following Items:")	
 	for i in m.items:
@@ -63,12 +68,11 @@ def get_item_info():
 	time.sleep(1)
 	print("A1- stands for Armor-1 and decrease your damage by monster by 5 and increases your healtbarlimit by 30(quip up to 8), same concept as by Sword, every level got better armor")
 
+# player using a item
 def use_item():
 	inventar.use_item(m.items, player)
 
-def get_monster_info():
-	pass
-
+# Commands the player can select
 Commands = {
 	"help": print_Commands,
 	"print_map": print_map,
@@ -77,13 +81,10 @@ Commands = {
     "right": right,
     "forward": forward,
     "backward": backward,
-    "fight": fight,
-    "print_hp": print_hp,
     "print_character_values": print_character_values,
     "print_inventar": print_inventar,
     "get_item_info": get_item_info,
-    "use_item": use_item,
-    "get_monster_info": get_monster_info
+    "use_item": use_item
 }
 
 class LevelOne():
