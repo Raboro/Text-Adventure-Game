@@ -107,6 +107,9 @@ class LevelOneMap():
 		for i in self.player_board:
 			print(i)
 		print("")
+		for i in self.board:
+			print(i)
+		print("")
 
 	# react to field	
 	def check_field_no_element(self):
@@ -150,6 +153,8 @@ class LevelOneMap():
 
 		elif self.board[self.x][self.y] in self.monster:
 			self.monster_obj = Monster(self.board[self.x][self.y], 1, player)
+			self.player_board[self.x][self.y] = "P"
+			self.board[self.x][self.y] = "P"
 
 	# movement		
 	def left(self, player):

@@ -25,12 +25,6 @@ def forward():
 def backward():
 	pass
 
-def fight():
-	pass
-
-def print_hp():
-	pass
-
 def print_character_values():
 	pass
 
@@ -51,8 +45,6 @@ Commands = {
     "right": right,
     "forward": forward,
     "backward": backward,
-    "fight": fight,
-    "print_hp": print_hp,
     "print_character_values": print_character_values,
     "print_inventar": print_inventar,
     "get_item_info": get_item_info,
