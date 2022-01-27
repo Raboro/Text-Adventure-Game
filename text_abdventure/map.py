@@ -107,9 +107,6 @@ class LevelOneMap():
 		for i in self.player_board:
 			print(i)
 		print("")
-		for i in self.board:
-			print(i)
-		print("")
 
 	# react to field	
 	def check_field_no_element(self):
